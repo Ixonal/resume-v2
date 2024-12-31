@@ -1,2 +1,2 @@
 # resume-v2
-versio
+version 2 of my resume app
