@@ -1,0 +1,35 @@
+@use "@resume-v2/resume-infrastructure/styles/variables";
+@use "@resume-v2/resume-infrastructure/styles/common";
+@use "@resume-v2/resume-infrastructure/styles/core";
+
+html {
+  display: block;
+}
+
+body {
+  padding: 0;
+  margin-top: variables.$padding-x-large;
+  position: relative;
+  display: block;
+  background: variables.$page-background;
+
+  @media print {
+    width: 9.5in;
+  }
+
+  & > router-view,.router-view {
+    display: block;
+    position: relative;
+
+    @media screen and (min-width: variables.$responsive-cutoff-min) {
+      width: variables.$responsive-cutoff-width;
+      left: 50%;
+      margin-left: calc(variables.$responsive-cutoff-width / -2);
+    }
+    @media screen and (max-width: variables.$responsive-cutoff-max) {
+      width: 100%;
+      left: 0;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@resume-v2/resume-vue",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "npm run serve:dev",
+    "build": "vite build",
+    "serve": "npm run serve:dev",
+    "serve:dev": "vite",
+    "serve:prod": "npm run build && npx http-server ./dist -g -o -s -i",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@resume-v2/resume-infrastructure": "^0.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1",
+    "vite": "^5.4.11",
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "sass": "^1.82.0",
+    "vitest": "^2.1.5"
+  }
+}

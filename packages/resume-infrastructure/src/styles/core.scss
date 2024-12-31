@@ -1,0 +1,72 @@
+//for things that need to be included only once
+@use "sass:color";
+@use "./variables";
+@use "./common";
+@use "./headers";
+@use "./mixins";
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  
+  font-family: variables.$font-family-base;
+}
+
+body {
+  font-size: variables.$font-size-base;
+  color: variables.$font-color-base;
+  cursor: default;
+
+  //this should get backgrounds showing when printing
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  //color-adjust: exact;
+}
+
+a {
+  color: variables.$link-color;
+  text-decoration: variables.$link-text-decoration;
+  display: inline-block;
+
+  &:hover {
+    text-decoration: variables.$link-text-decoration-hover;
+  }
+}
+
+.no-print {
+  @media print {
+    display: none;
+  }
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.clearfix {
+  @include mixins.clearfix();
+}
+
+hr {
+  margin: 0;
+  height: 0;
+  border: 0 hidden transparent;
+  //border-bottom: 1px solid lighten($font-color-base, 30%);
+  border-bottom: 1px solid color.adjust(variables.$font-color-base, $lightness: 30%);
+}
+
+// .spinner {
+//   position: fixed;
+//   $spinner-size: 200px;
+//   top: 50%;
+//   left: 50%;
+//   margin-left: $spinner-size / -2;
+//   margin-top: $spinner-size / -2;
+
+//   //@include spinner(1s, $spinner-size, linear, 10, 40px, lighten(black, 15%), rgba(100,100,100,.75));
+//   @include rotating-spinner(-360deg, 50s, linear, 1s, $spinner-size, linear, 10, 40px, lighten(black, 15%), rgba(100,100,100,.75));
+// }

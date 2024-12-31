@@ -1,0 +1,8 @@
+{
+  "name": "@resume-v2/resume-angular", 
+  "type": "module", 
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@resume-v2/resume-infrastructure": "^0.0.1"
+  }
+}

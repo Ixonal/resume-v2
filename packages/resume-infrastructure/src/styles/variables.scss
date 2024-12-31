@@ -1,0 +1,47 @@
+@use "sass:color";
+
+$page-background: white;
+
+$responsive-cutoff-min: 1050px;
+$responsive-cutoff-max: $responsive-cutoff-min - 1;
+$responsive-cutoff-width: 1000px;
+
+//scale factors used periodically
+$scale-factor-1: 2.5;
+$scale-factor-2: 1.75;
+$scale-factor-3: 1.4;
+$scale-factor-4: 1.15;
+$scale-factor-5: 1;
+$scale-factor-6: .75;
+$scale-factor-list: (
+  $scale-factor-1, 
+  $scale-factor-2, 
+  $scale-factor-3, 
+  $scale-factor-4, 
+  $scale-factor-5, 
+  $scale-factor-6
+);
+
+//heading
+$heading-bg-primary: #4f6fa3;
+//$heading-bg-secondary: darken($heading-bg-primary, 15%);
+$heading-bg-secondary: color.adjust($heading-bg-primary, $lightness: -15%);
+
+//padding
+$padding-base: 6px;
+$padding-small: $padding-base * $scale-factor-6;
+$padding-mid: $padding-base * $scale-factor-5;
+$padding-large: $padding-base * $scale-factor-4;
+$padding-x-large: $padding-base * $scale-factor-3;
+
+
+//fonts
+$font-size-base: 15px;
+//$font-color-base: lighten(black, 10%);
+$font-color-base: color.adjust(black, $lightness: 10%);
+$font-family-base: Helvetica;
+
+//links
+$link-color: $font-color-base;
+$link-text-decoration: none;
+$link-text-decoration-hover: underline;

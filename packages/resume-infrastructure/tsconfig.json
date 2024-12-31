@@ -1,0 +1,19 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "Node16",
+    "target": "ES2020",
+    "moduleResolution": "node16",
+    "skipLibCheck": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "lib": [
+      "es2015"
+    ],
+    "baseUrl": "src",
+    "rootDir": "src",
+    "outDir": "dist",
+    "allowJs": true
+  }, 
+  "include": [ "src/**/*" ]
+}

@@ -1,0 +1,28 @@
+@use "@resume-v2/resume-infrastructure/styles/variables";
+@use "@resume-v2/resume-infrastructure/styles/common";
+
+.proficiency {
+  display: block;
+
+  .proficiency-container {
+    text-align: justify;
+  }
+
+  &.condensed {
+    display: inline-block; 
+    vertical-align: top;
+    width: calc(100% / 3);
+    &>.align-left {
+      text-align: left;
+    }
+    &>.align-center {
+      text-align: center;
+    }
+    &>.align-right {
+      text-align: right;
+    }
+    &>p {
+      margin: variables.$padding-large;
+    }
+  }
+}

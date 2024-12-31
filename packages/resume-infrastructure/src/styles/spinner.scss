@@ -1,0 +1,92 @@
+@import "./math";
+
+@mixin spinner($duration, $size, $easing: linear, $dot-count: 8, $dot-size: 10px, $color: black, $secondary-color: gray) {
+  width: $size;
+  height: $size;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-left: $dot-size / -2;
+    margin-top: $dot-size / -2;
+
+    box-shadow: build-spinner-box-shadow($size, $dot-count, $dot-size, $color, $secondary-color, 0);
+    $anim-name: spinner-#{unique-id()};
+    @include spinner-animation($anim-name, $size, $dot-count, $dot-size, $color, $secondary-color);
+    animation: $anim-name $duration $easing infinite;
+  }
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin spinner-animation($name, $size, $dot-count, $dot-size, $color, $secondary-color) {
+  &{
+    @include keyframes($name) {
+      @for $dot-outer from 0 through $dot-count {
+        $percent: $dot-outer / $dot-count;
+        #{$percent * 100%} {
+          box-shadow: build-spinner-box-shadow($size, $dot-count, $dot-size, $color, $secondary-color, $dot-outer);
+        }
+      }
+    }
+  }
+}
+
+@function build-spinner-box-shadow($size, $dot-count, $dot-size, $color, $secondary-color, $active-index) {
+  $dot-angle: 360deg / $dot-count;
+  $dot-list: ();
+  $r: ($size / 2) - ($dot-size / 2);
+
+  @for $dot from 1 through $dot-count {
+    $angle: $dot * $dot-angle;
+    $x: round($r * cos($angle));
+    $y: round($r * sin($angle));
+    $c-dot: ();
+    @if $dot == $active-index {
+      $c-dot: ($x $y $color);
+    } @else {
+      $small-dot-size-offset: $dot-size / -8;
+      $c-dot: ($x $y 0 $small-dot-size-offset $secondary-color);
+    }
+    $dot-list: append($dot-list, $c-dot, "comma");
+  }
+
+  @return $dot-list;
+}
+
+@mixin rotating-spinner($angle, $rotation-duration, $easing: linear, $spinner-params...) {
+  @include spinner($spinner-params...);
+
+  $anim-name: rotation-#{unique-id()};
+  @include rotate-animation($anim-name, $angle, $rotation-duration);
+  animation: $anim-name $rotation-duration $easing infinite;
+}
+
+@mixin rotate-animation($name, $angle, $duration) {
+  @include keyframes($name) {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ($angle);
+    }
+  }
+}

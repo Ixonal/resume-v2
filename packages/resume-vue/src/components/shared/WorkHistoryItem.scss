@@ -1,0 +1,29 @@
+@use "@resume-v2/resume-infrastructure/styles/variables";
+@use "@resume-v2/resume-infrastructure/styles/common";
+
+.work-history-item {
+  display: block;
+  
+  &:not(:last-child) {
+    margin-bottom: variables.$padding-large;
+  }
+  
+  &>.description {
+    margin: 0;
+  }
+
+  &>.period {
+    margin: 0;
+  }
+
+  &>.location {
+    margin: 0;
+  }
+
+  &>.long-description {
+    padding: variables.$padding-large;
+    margin: 0;
+    text-align: justify;
+  }
+
+}

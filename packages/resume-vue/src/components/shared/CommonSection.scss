@@ -1,0 +1,31 @@
+@use "@resume-v2/resume-infrastructure/styles/variables";
+@use "@resume-v2/resume-infrastructure/styles/common";
+
+.common-section {
+  display: block;
+  overflow: hidden;
+  margin-top: variables.$padding-x-large;
+  margin-bottom: variables.$padding-x-large;
+
+  & > fieldset {
+    position: relative;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    & > legend {
+      position: relative;
+      width: 100%;
+      @include common.heading-styles();
+      & > h2 {
+        padding: variables.$padding-mid;
+        width: 100%;
+      }
+    }
+
+    & > *:not(legend) {
+      padding: variables.$padding-large;
+    }
+  }
+
+}

@@ -1,0 +1,12 @@
+@use "@resume-v2/resume-infrastructure/styles/variables";
+@use "@resume-v2/resume-infrastructure/styles/common";
+
+.reference {
+  display: block;
+
+  &>.reference-info {
+    padding: variables.$padding-large;
+
+    margin: 0;
+  }
+}

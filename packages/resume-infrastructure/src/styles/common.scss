@@ -1,0 +1,33 @@
+
+@use "./variables";
+@use "./mixins";
+@use "./gradients";
+
+@mixin heading-gradient() {
+  @include gradients.background-image-x(
+    gradients.linear-gradient-x(325deg, variables.$page-background 0, variables.$page-background 50px, transparent 250px, transparent 100%),
+    gradients.linear-gradient-x(180deg, variables.$heading-bg-primary 0, variables.$heading-bg-secondary 100%)
+  );
+  @media print {
+    //so apparently background images have the wrong rotation when printed...
+    @include gradients.background-image-x(
+      gradients.linear-gradient-x(325 - 110deg, variables.$page-background 0, variables.$page-background 50px, transparent 250px, transparent 100%),
+      gradients.linear-gradient-x(180deg, variables.$heading-bg-primary 0, variables.$heading-bg-secondary 100%)
+    );
+  }
+}
+
+@mixin heading-styles() {
+  display: block;
+  color: white;
+  border: none !important;
+
+  @media screen and (max-width: variables.$responsive-cutoff-max) {
+    & {
+      text-shadow: 0 0 2px rgba(0,0,0,.75);
+    }
+  }
+
+  @include mixins.border-radius(3px);
+  @include heading-gradient();
+}

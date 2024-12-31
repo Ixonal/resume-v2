@@ -1,0 +1,31 @@
+@use 'sass:list';
+
+@function linear-gradient-x($direction, $stops...) {
+  @return linear-gradient($direction, $stops);
+}
+
+@function prefixed-background-image-list-x($prefix, $images) {
+  $ret-val: ();
+  
+  @each $image in $images {
+    $prefixed-image: #{$prefix}$image;
+    $ret-val: list.append($ret-val, $prefixed-image, 'comma');
+  }
+
+  @return $ret-val;
+}
+
+@mixin background-image-x($backgrounds...) {
+  background-image: prefixed-background-image-list-x("-moz-", $backgrounds);
+  background-image: prefixed-background-image-list-x("-webkit-", $backgrounds);
+  background-image: prefixed-background-image-list-x("-o-", $backgrounds);
+  background-image: prefixed-background-image-list-x("ms-", $backgrounds);
+  background-image: prefixed-background-image-list-x("", $backgrounds);
+}
+
+@mixin horizontal-gradient-x($start-color, $end-color) {
+  @include background-image-x(
+    linear-gradient-x(90deg, $start-color 0, $end-color 100%)
+  );
+}
+

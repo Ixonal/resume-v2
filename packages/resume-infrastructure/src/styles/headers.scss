@@ -1,0 +1,19 @@
+@use "sass:list";
+@use "./variables";
+
+@for $c from 1 to list.length(variables.$scale-factor-list) {
+  $scale-factor: list.nth(variables.$scale-factor-list, $c);
+  .h#{$c},h#{$c} {
+    font-size: variables.$font-size-base * $scale-factor;
+    margin: 0;
+    box-shadow: none;
+    border: 0px hidden transparent;
+    @if $c > 4 {
+      font-weight: normal;
+      font-style: italic;
+    } @else {
+      font-weight: bold;
+      font-style: normal;
+    }
+  }
+}

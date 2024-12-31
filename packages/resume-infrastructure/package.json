@@ -1,0 +1,50 @@
+{
+  "name": "@resume-v2/resume-infrastructure",
+  "type": "module",
+  "version": "0.0.1",
+  "exports": {
+    "./*": {
+      "types": "./src/*.d.ts",
+      "default": "./src/*.js"
+    },
+    "./models*": {
+      "default": [
+        "./src/models/index.js",
+        "./src/models/*.js"
+      ]
+    },
+    "./services*": {
+      "default": [
+        "./src/services/index.js",
+        "./src/services/*.js"
+      ]
+    },
+    "./styles*": {
+      "default": [
+        "./src/styles/*.scss",
+        "./src/styles/*.scss"
+      ]
+    },
+    "./util*": {
+      "default": [
+        "./src/util/index.js",
+        "./src/util/*.js"
+      ]
+    }
+  },
+  "scripts": {
+    "start": "npm run build",
+    "test": "vitest run",
+    "build": "npm run clean && tsc",
+    "clean": "npx del-cli dist/**/*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.5"
+  },
+  "dependencies": {
+    "firebase": "^11.0.2",
+    "moment": "^2.30.1",
+    "rxjs": "^7.8.1"
+  }
+}

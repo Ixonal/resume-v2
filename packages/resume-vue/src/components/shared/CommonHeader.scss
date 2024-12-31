@@ -1,0 +1,33 @@
+@use "@resume-v2/resume-infrastructure/styles/variables";
+@use "@resume-v2/resume-infrastructure/styles/common";
+
+.common-header {
+  display: block;
+  position: relative;
+
+  & > h1 {
+    position: relative;
+    @include common.heading-styles();
+    padding: variables.$padding-large;
+    & > * {
+      position: relative;
+    }
+
+  }
+  & > *:not(h1) {
+    position: relative;
+    padding: variables.$padding-mid;
+  }
+
+  & > div > .slot-container {
+    margin-top: -45px;
+
+    & > a {
+      font-weight: bold;
+    }
+  }
+
+  .objective {
+    text-align: justify;
+  }
+}
