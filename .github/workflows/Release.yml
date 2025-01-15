@@ -1,0 +1,19 @@
+on: 
+  release: 
+    types: [ published ]
+
+jobs: 
+  release: 
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v3
+        name: Checkout
+      - uses: actions/setup-node@v3
+        name: Setup Node
+        with:
+          node-version: 20
+      - run: npm install
+        name: Install Dependencies
+      - run: npm run build:prod
+      #need to figure out the firebase part of things...
