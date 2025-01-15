@@ -1,0 +1,19 @@
+on:
+  merge_group:
+    branches: [ Deploy ]
+
+jobs:
+  Deploy: 
+    runs-on: ubuntu-latest
+
+    steps:
+      # - uses: actions/checkout@v3
+      #   name: Checkout
+      # - uses: actions/setup-node@v3
+      #   name: Setup Node
+      #   with:
+      #     node-version: 20
+      # - run: npm install
+      #   name: Install Dependencies
+      - run: echo "This is a test"
+        name: Foo
