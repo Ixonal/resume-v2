@@ -12,9 +12,15 @@
       "packages/*"
     ]
   },
+
+  "config": {
+    "releasePackage": "resume-vue"
+  },
+
   "scripts": {
     "start": "build",
-    "build": "npm run build --workspaces",
+    "build": "npm run build --workspaces", 
+    "stage": "npx del-cli dist && npx ncp packages/%npm_package_config_releasePackage%/dist dist", 
     "test": "vitest run"
   },
   "devDependencies": {

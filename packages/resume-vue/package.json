@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "npm run serve:dev",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "serve": "npm run serve:dev",
     "serve:dev": "vite",
     "serve:prod": "npm run build && npx http-server ./dist -g -o -s -i",

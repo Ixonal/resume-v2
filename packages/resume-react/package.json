@@ -2,6 +2,16 @@
   "name": "@resume-v2/resume-react", 
   "type": "module", 
   "version": "0.0.1",
+
+  "scripts": {
+    "start": "npm run serve:dev",
+    "build": "echo todo: implement me!",
+    "serve": "echo todo: implement me!",
+    "serve:dev": "echo todo: implement me!",
+    "serve:prod": "echo todo: implement me!",
+    "test": "echo todo: implement me!"
+  },
+
   "peerDependencies": {
     "@resume-v2/resume-infrastructure": "^0.0.1"
   }
