@@ -16,7 +16,9 @@ jobs:
       - run: npm install
         name: Install Dependencies
       - run: npm test && npm run build && npm run stage
-        name: Run Tests and Build App
+        name: Run Tests
+      - run: npm run build && npm run stage
+        name: Build App
       - uses: FirebaseExtended/action-hosting-deploy@v0
         name: Deploy to Firebase
         with:
